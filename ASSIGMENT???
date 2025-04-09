@@ -18,6 +18,14 @@ inputStream = new BufferedReader(new FileReader("dictionary.txt"));
 while ((line = inputStream.readLine()) != null) {
 dictionary.add(line);
 }
+} catch (IOException exception) {
+System.out.println("Error creating file.");
+} catch (FileNotFoundException exception) {
+System.out.println("Error opening file.");
+} finally { // good practice; generally used if code deals with files; always go through
+if (inputStream != null) {
+inputStream.close();
+}
 System.out.println("Enter a sentence: ");
 String sentence[] = keyboard.nextLine().split(" ");
 keyboard.close();
@@ -29,14 +37,6 @@ System.out.println((i + 1) + ". " + sentence[i] + " <valid>");
 } else {
 System.out.println((i + 1) + ". " + sentence[i] + " <invalid>");
 }
-}
-} catch (IOException exception) {
-System.out.println("Error creating file.");
-} catch (FileNotFoundException exception) {
-System.out.println("Error opening file.");
-} finally { // good practice; generally used if code deals with files; always go through
-if (inputStream != null) {
-inputStream.close();
 }
 }
 }
