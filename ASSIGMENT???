@@ -30,10 +30,10 @@ System.out.println((i + 1) + ". " + sentence[i] + " <valid>");
 System.out.println((i + 1) + ". " + sentence[i] + " <invalid>");
 }
 }
-} catch (FileNotFoundException exception) {
-System.out.println("Error opening file.");
 } catch (IOException exception) {
 System.out.println("Error creating file.");
+} catch (FileNotFoundException exception) {
+System.out.println("Error opening file.");
 } finally { // good practice; generally used if code deals with files; always go through
 if (inputStream != null) {
 inputStream.close();
